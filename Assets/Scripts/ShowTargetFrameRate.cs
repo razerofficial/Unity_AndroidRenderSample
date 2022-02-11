@@ -10,6 +10,8 @@ public class ShowTargetFrameRate : MonoBehaviour
     public Button _mButtonFPS30 = null;
     public Button _mButtonFPS60 = null;
     public Button _mButtonFPS90 = null;
+    public Button _mButtonFPS120 = null;
+    public Button _mButtonFPS144 = null;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +33,7 @@ public class ShowTargetFrameRate : MonoBehaviour
                 Application.targetFrameRate = 30;
                 if (_mLabelFrameRate)
                 {
-                    _mLabelFrameRate.text = string.Format("Target Frame Rate:  {0} FPS", Application.targetFrameRate);
+                    _mLabelFrameRate.text = string.Format("Target Frame Rate: {0} FPS", Application.targetFrameRate);
                 }
             });
         }
@@ -42,7 +44,7 @@ public class ShowTargetFrameRate : MonoBehaviour
                 Application.targetFrameRate = 60;
                 if (_mLabelFrameRate)
                 {
-                    _mLabelFrameRate.text = string.Format("Target Frame Rate:  {0} FPS", Application.targetFrameRate);
+                    _mLabelFrameRate.text = string.Format("Target Frame Rate: {0} FPS", Application.targetFrameRate);
                 }
             });
         }
@@ -53,15 +55,31 @@ public class ShowTargetFrameRate : MonoBehaviour
                 Application.targetFrameRate = 90;
                 if (_mLabelFrameRate)
                 {
-                    _mLabelFrameRate.text = string.Format("Target Frame Rate:  {0} FPS", Application.targetFrameRate);
+                    _mLabelFrameRate.text = string.Format("Target Frame Rate: {0} FPS", Application.targetFrameRate);
                 }
             });
         }
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (_mButtonFPS120)
+        {
+            _mButtonFPS120.onClick.AddListener(() => {
+                Application.targetFrameRate = 120;
+                if (_mLabelFrameRate)
+                {
+                    _mLabelFrameRate.text = string.Format("Target Frame Rate: {0} FPS", Application.targetFrameRate);
+                }
+            });
+        }
+
+        if (_mButtonFPS144)
+        {
+            _mButtonFPS144.onClick.AddListener(() => {
+                Application.targetFrameRate = 144;
+                if (_mLabelFrameRate)
+                {
+                    _mLabelFrameRate.text = string.Format("Target Frame Rate: {0} FPS", Application.targetFrameRate);
+                }
+            });
+        }
     }
 }
