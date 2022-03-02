@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ShowTargetFrameRate : MonoBehaviour
 {
     public Text _mLabelFrameRate = null;
-    public Button _mButtonUncapped = null;
+    public Button _mButtonDefault = null;
     public Button _mButtonFPS30 = null;
     public Button _mButtonFPS60 = null;
     public Button _mButtonFPS90 = null;
@@ -16,13 +14,13 @@ public class ShowTargetFrameRate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (_mButtonUncapped)
+        if (_mButtonDefault)
         {
-            _mButtonUncapped.onClick.AddListener(() => {
+            _mButtonDefault.onClick.AddListener(() => {
                 Application.targetFrameRate = -1;
                 if (_mLabelFrameRate)
                 {
-                    _mLabelFrameRate.text = "Target Frame Rate:  Uncapped";
+                    _mLabelFrameRate.text = "Target Frame Rate: Default";
                 }
             });
         }
